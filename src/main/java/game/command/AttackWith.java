@@ -44,7 +44,7 @@ public class AttackWith extends Command {
         else {
 
             currentRoom.setMonster(null);
-            stringBuilder.append("is dead.");
+            stringBuilder.append(" is dead.");
             player.setAttackPower(player.getAttackPower()+2);
         }
     }

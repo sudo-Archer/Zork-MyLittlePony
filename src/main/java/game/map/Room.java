@@ -3,20 +3,31 @@ package game.map;
 import game.item.Item;
 import game.monster.Monster;
 
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
+
+import static javax.swing.UIManager.put;
+
 public class Room {
 
     private String roomName;
     private String roomDescription;
     private Item item = null;
     private Monster monster = null;
-    private Room North = null;
-    private Room South = null;
-    private Room West = null;
-    private Room East = null;
+    private HashMap<String, Room> directionsToOtherRooms = new HashMap<>();
+    private static Set<String> directions = new HashSet<>();
+
+
+
 
     public Room(String roomName, String roomDescription) {
         this.roomName = roomName;
         this.roomDescription = roomDescription;
+        directions.add("north");
+        directions.add("south");
+        directions.add("east");
+        directions.add("west");
     }
 
     public void setItem(Item item) {
@@ -26,45 +37,19 @@ public class Room {
         return item;
     }
 
-
-    public void setNorth(Room north) {
-        North = north;
+    public void setRoom(String dir, Room room) {
+        if(!directions.contains(dir)){
+            throw new IllegalArgumentException("Direction Unknown");
+        }
+        directionsToOtherRooms.put(dir, room);
     }
 
-    public void setSouth(Room south) {
-        South = south;
-    }
-
-    public void setWest(Room west) {
-        West = west;
-    }
-
-    public void setEast(Room east) {
-        East = east;
+    public Room getRoom(String dir){
+        return directionsToOtherRooms.get(dir);
     }
 
     public String getRoomName() {
         return roomName;
-    }
-
-    public String getRoomDescription() {
-        return roomDescription;
-    }
-
-    public Room getNorth() {
-        return North;
-    }
-
-    public Room getSouth() {
-        return South;
-    }
-
-    public Room getWest() {
-        return West;
-    }
-
-    public Room getEast() {
-        return East;
     }
 
     public Monster getMonster() {
@@ -75,7 +60,18 @@ public class Room {
         this.monster = monster;
     }
 
-    public void setRoomName(String roomName) {
-        this.roomName = roomName;
+    public String info(){
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("You are in "+roomName+". ");
+        stringBuilder.append("You see " + roomDescription+"\n");
+        if(item!= null){
+            stringBuilder.append("There is an Item "+item.getItemName()+" in this room. ");
+        }
+        if(monster != null){
+            stringBuilder.append("There is a Monster in this room. \n");
+            stringBuilder.append(monster.info()+"\n");
+        }
+        return stringBuilder.toString();
+
     }
 }

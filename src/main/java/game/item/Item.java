@@ -3,23 +3,24 @@ package game.item;
 public class Item {
 
     private String itemName;
-    private String itemInfo;
+    private String itemDescription;
 
 
-    public Item(String itemName, String itemInfo) {
+    public Item(String itemName, String itemDescription) {
         this.itemName = itemName;
-        this.itemInfo = itemInfo;
+        this.itemDescription = itemDescription;
     }
 
     public String getItemName(){
         return  this.itemName;
     }
-    public String getItemInfo(){
-        return this.itemInfo;
+    public String getItemDescription(){
+        return this.itemDescription;
 
     }
 
     public int use() {
         return 0;
     }
+
 }

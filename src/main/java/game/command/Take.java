@@ -14,7 +14,7 @@ public class Take extends Command {
            stringBuilder.append("you have picked up ");
            stringBuilder.append(roomItem.getItemName());
            stringBuilder.append(". Item info: ");
-           stringBuilder.append(roomItem.getItemInfo());
+           stringBuilder.append(roomItem.getItemDescription());
 
            player.addItem(roomItem);
            curRoom.setItem(null);

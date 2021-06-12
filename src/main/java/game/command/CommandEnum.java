@@ -8,8 +8,8 @@ public enum CommandEnum {
     INFO(Info.class, "info"),
     TAKE(Take.class, "take"),
     DROP(Drop.class, "drop"),
-    ATTACK_WITH(AttackWith.class, "attack with");
-
+    ATTACK_WITH(AttackWith.class, "attack with"),
+    GO(Go.class, "go"),
 
     ;
 

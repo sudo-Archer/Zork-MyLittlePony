@@ -8,19 +8,8 @@ public class Info extends Command {
     @Override
     public void action() {
         stringBuilder = new StringBuilder();
-        playerInfo();
+        stringBuilder.append(player.info()+"\n");
+        stringBuilder.append(player.getCurrentRoom().info());
 
     }
-
-
-    private void playerInfo(){
-        stringBuilder.append("game.player.Player info");
-        stringBuilder.append(" HP: ");
-        stringBuilder.append(player.getHp());
-        stringBuilder.append(" MaxHP: ");
-        stringBuilder.append(player.getMaxHp());
-        stringBuilder.append(" attack power:");
-        stringBuilder.append(player.getAttackPower());
-    }
-
 }

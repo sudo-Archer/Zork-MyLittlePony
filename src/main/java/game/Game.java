@@ -21,6 +21,7 @@ public class Game {
 
 
     public void run(){
+        output.add(player.getCurrentRoom().info());
         while(run){
             output.display();
             System.out.print("Enter a command: ");

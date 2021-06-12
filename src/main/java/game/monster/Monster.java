@@ -2,15 +2,15 @@ package game.monster;
 
 public class Monster {
     protected String name;
-    protected String info;
+    protected String description;
     protected int HP;
     protected int attackPower;
     protected boolean isAlive;
 
 
-    public Monster(String name, String info, int HP, int attackPower) {
+    public Monster(String name, String description, int HP, int attackPower) {
         this.name = name;
-        this.info = info;
+        this.description = description;
         this.HP = HP;
         this.attackPower = attackPower;
     }
@@ -23,8 +23,8 @@ public class Monster {
         return isAlive;
     }
 
-    public String getInfo() {
-        return info;
+    public String getDescription() {
+        return description;
     }
 
     public int getHP() {
@@ -39,8 +39,8 @@ public class Monster {
         this.name = name;
     }
 
-    public void setInfo(String info) {
-        this.info = info;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public void setHP(int HP) {
@@ -50,5 +50,16 @@ public class Monster {
 
     public void setAttackPower(int attackPower) {
         this.attackPower = attackPower;
+    }
+
+    public String info(){
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("Monster Name: "+name+" ,Info: "+description+"\n");
+        stringBuilder.append("HP: ");
+        stringBuilder.append(HP);
+        stringBuilder.append(" Attack-power: ");
+        stringBuilder.append(attackPower);
+        return stringBuilder.toString();
+
     }
 }

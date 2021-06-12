@@ -8,6 +8,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Player {
 
@@ -82,5 +83,18 @@ public class Player {
         gameItems.remove(item);
         return true;
 
+    }
+    public String info(){
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("Player info:\n");
+        stringBuilder.append("HP: ");
+        stringBuilder.append(hp);
+        stringBuilder.append(" Attack-power: ");
+        stringBuilder.append(attackPower+"\n");
+        stringBuilder.append("Inventory: ");
+        for(Map.Entry<String, Item> set: gameItems.entrySet()){
+            stringBuilder.append(set.getKey()+", ");
+        }
+        return stringBuilder.toString();
     }
 }
