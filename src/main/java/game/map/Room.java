@@ -1,8 +1,12 @@
+package game.map;
+
+import game.item.Item;
+
 public class Room {
 
     private String roomName;
     private String roomDescription;
-    private Weapon Weapon = null;
+    private Item item = null;
     private Room North = null;
     private Room South = null;
     private Room West = null;
@@ -12,6 +16,14 @@ public class Room {
         this.roomName = roomName;
         this.roomDescription = roomDescription;
     }
+
+    public void setItem(Item item) {
+        this.item = item;
+    }
+    public Item getItem(){
+        return item;
+    }
+
 
     public void setNorth(Room north) {
         North = north;
@@ -35,10 +47,6 @@ public class Room {
 
     public String getRoomDescription() {
         return roomDescription;
-    }
-
-    public Weapon getWeapon() {
-        return Weapon;
     }
 
     public Room getNorth() {

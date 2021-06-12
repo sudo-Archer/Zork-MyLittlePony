@@ -1,10 +1,17 @@
+package game.player;
+
+import game.map.GameMap;
+import game.map.Room;
+import game.item.Item;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Player {
 
     private Room currentRoom;
-    private List<Weapon> weapons = new ArrayList<>();
+    private HashMap<String, Item> gameItems = new HashMap<>();
     private int hp;
     private int maxHp;
     private int attackPower;
@@ -53,5 +60,18 @@ public class Player {
 
     public void setAttackPower(int attackPower){
         this.attackPower = attackPower;
+    }
+
+    public void addItem(Item item){
+        this.gameItems.put(item.getItemName().toLowerCase(), item);
+    }
+
+    public boolean removeItem(String item){
+        if(gameItems.get(item) == null){
+            return false;
+        }
+        gameItems.remove(item);
+        return true;
+
     }
 }

@@ -1,3 +1,10 @@
+package game;
+
+import game.CommandParser;
+import game.Output;
+import game.map.GameMap;
+import game.player.Player;
+
 import java.util.Scanner;
 
 public class Game {

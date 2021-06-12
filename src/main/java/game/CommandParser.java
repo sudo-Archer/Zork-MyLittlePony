@@ -1,4 +1,9 @@
-import java.util.Locale;
+package game;
+
+import game.Output;
+import game.command.Command;
+import game.command.CommandFactory;
+import game.player.Player;
 
 public class CommandParser {
 

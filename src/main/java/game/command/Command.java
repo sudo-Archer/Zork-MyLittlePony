@@ -1,6 +1,10 @@
+package game.command;
+import game.player.Player;
+
 public abstract class Command {
     protected String argument;
     protected Player player;
+    protected StringBuilder stringBuilder = new StringBuilder();
 
     public void setArgument(String argument) {
         this.argument = argument.trim();
@@ -19,6 +23,8 @@ public abstract class Command {
     }
 
     public abstract void action();
-    public abstract String output();
+    public String output(){
+        return stringBuilder.toString();
+    }
 
 }

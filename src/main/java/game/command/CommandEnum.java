@@ -1,6 +1,13 @@
+package game.command;
+
+import game.command.Info;
+import game.command.Take;
+
 public enum CommandEnum {
 
-    INFO(Info.class, "info");
+    INFO(Info.class, "info"),
+    TAKE(Take.class, "take"),
+    DROP(Drop.class, "drop");
 
     ;
 
@@ -13,7 +20,6 @@ public enum CommandEnum {
         this.commandClass = commandClass;
         this.commandString = commandString;
     }
-
     public String getCommandString() {
         return commandString;
     }

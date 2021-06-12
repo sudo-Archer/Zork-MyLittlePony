@@ -1,3 +1,8 @@
+package game.command;
+
+import game.command.Command;
+import game.command.CommandEnum;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,7 +22,6 @@ public class CommandFactory {
         String commandString;
         for (Map.Entry<String, Class> set : commandMap.entrySet()){
             commandString = set.getKey();
-            System.out.println(commandString);
 
             if (commandString.length() <= command.length() && commandString.equals(command.substring(0,commandString.length()))){
                 try {

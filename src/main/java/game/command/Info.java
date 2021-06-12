@@ -1,6 +1,9 @@
-public class Info extends Command{
+package game.command;
 
-    StringBuilder stringBuilder;
+import game.command.Command;
+
+public class Info extends Command {
+
 
     @Override
     public void action() {
@@ -9,13 +12,9 @@ public class Info extends Command{
 
     }
 
-    @Override
-    public String output() {
-        return stringBuilder.toString();
-    }
 
     private void playerInfo(){
-        stringBuilder.append("Player info");
+        stringBuilder.append("game.player.Player info");
         stringBuilder.append(" HP: ");
         stringBuilder.append(player.getHp());
         stringBuilder.append(" MaxHP: ");
