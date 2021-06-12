@@ -18,4 +18,8 @@ public class Item {
         return this.itemInfo;
 
     }
+
+    public int use() {
+        return 0;
+    }
 }

@@ -4,6 +4,7 @@ import game.map.GameMap;
 import game.map.Room;
 import game.item.Item;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -64,6 +65,14 @@ public class Player {
 
     public void addItem(Item item){
         this.gameItems.put(item.getItemName().toLowerCase(), item);
+    }
+
+    public Item getItem(String itemName){
+        return gameItems.get(itemName);
+    }
+
+    public HashMap getAllItems(){
+        return gameItems;
     }
 
     public boolean removeItem(String item){

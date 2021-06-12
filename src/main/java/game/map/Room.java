@@ -1,12 +1,14 @@
 package game.map;
 
 import game.item.Item;
+import game.monster.Monster;
 
 public class Room {
 
     private String roomName;
     private String roomDescription;
     private Item item = null;
+    private Monster monster = null;
     private Room North = null;
     private Room South = null;
     private Room West = null;
@@ -65,5 +67,15 @@ public class Room {
         return East;
     }
 
+    public Monster getMonster() {
+        return monster;
+    }
 
+    public void setMonster(Monster monster){
+        this.monster = monster;
+    }
+
+    public void setRoomName(String roomName) {
+        this.roomName = roomName;
+    }
 }
