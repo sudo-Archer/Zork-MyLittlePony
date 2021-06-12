@@ -2,10 +2,12 @@ import java.util.Scanner;
 
 public class Game {
 
+    GameMap gameMap = new GameMap();
+    Player player = new Player(gameMap, 8, 2);
     Output output = new Output();
     boolean run = true;
     String command;
-    CommandParser commandParser = new CommandParser(output);
+    CommandParser commandParser = new CommandParser(output, player);
     Scanner scanner = new Scanner(System.in);
 
 
