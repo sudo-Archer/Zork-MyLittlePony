@@ -10,18 +10,18 @@ import java.util.Scanner;
 
 public class Game {
 
-    GameMap gameMap;
+    private Boolean run = true;
+    GameMap gameMap = new TestingMap();
     Player player;
     Output output = new Output();
     String command;
     CommandParser commandParser = new CommandParser(output, player, gameMap);
     Scanner scanner = new Scanner(System.in);
-    private boolean run = true;
 
 
     public void run(){
         output.add("Welcome to Zork Adventure!");
-        while(run){
+        while(output.isRunning()){
             output.display();
             System.out.print("Enter a command: ");
             command = scanner.nextLine();

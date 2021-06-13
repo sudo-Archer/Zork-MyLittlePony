@@ -2,6 +2,7 @@ package game;
 
 public class Output {
     StringBuilder stringBuilder;
+    boolean run = true;
 
     public Output() {
         this.stringBuilder = new StringBuilder();
@@ -19,4 +20,6 @@ public class Output {
         System.out.println(stringBuilder.toString());
         stringBuilder = new StringBuilder();
     }
+    public boolean isRunning(){ return run;}
+    public void stopRunning(){ run = false;}
 }

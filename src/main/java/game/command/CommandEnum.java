@@ -11,6 +11,7 @@ public enum CommandEnum {
     HELP(Help.class, "help", "help- Print all commands and its uses."),
     PLAY(Play.class, "play", "play [map]- Start playing the map."),
     QUIT(Quit.class, "quit", "quit- quit the current game"),
+    EXIT(Exit.class, "exit", "exit- exit form Zork adventure.")
 
 
     ;
