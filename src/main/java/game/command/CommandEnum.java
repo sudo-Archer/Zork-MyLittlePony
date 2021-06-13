@@ -10,6 +10,8 @@ public enum CommandEnum {
     AUTOPILOT(Autopilot.class, "autopilot", "autopilot [file]- Run this game in autopilot mode using the list of command in the file"),
     HELP(Help.class, "help", "help- Print all commands and its uses."),
     PLAY(Play.class, "play", "play [map]- Start playing the map."),
+    QUIT(Quit.class, "quit", "quit- quit the current game"),
+
 
     ;
 

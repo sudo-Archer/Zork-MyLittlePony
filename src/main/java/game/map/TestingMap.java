@@ -16,7 +16,6 @@ public class TestingMap extends GameMap {
     protected void initialize() {
         startingRoom = new Room("Starting Room", "nothing");
         up = new Room("UP", "its the north of the starting room");
-        System.out.println("hit");
     }
 
     @Override
