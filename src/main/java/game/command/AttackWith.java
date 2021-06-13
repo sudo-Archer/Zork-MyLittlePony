@@ -17,34 +17,35 @@ public class AttackWith extends Command {
         monster = currentRoom.getMonster();
         item =  player.getItem(argument);
         if(monster == null){
-            stringBuilder.append("There is nothing to attack");
+            output.add("There is nothing to attack");
         }
         else if(argument.equals("")){
-            stringBuilder.append("Attack with what?");
+            output.add("Attack with what?");
         }
         else if(item == null){
-            stringBuilder.append("You don't have that Item");
+            output.add("You don't have that Item");
         }
         else{
             PlayerAttackMonster();
             MonsterAttackPlayer();
         }
+        output.add("\n");
     }
 
     private void MonsterAttackPlayer() {
-        stringBuilder.append("The monster ");
-        stringBuilder.append(monster.getName());
+        output.add("The monster ");
+        output.add(monster.getName());
         if(monster.isAlive()){
             int attack = monster.getAttackPower();
             player.setHp(player.getHp()- attack);
-            stringBuilder.append(" attacks you back with ");
-            stringBuilder.append(attack);
-            stringBuilder.append(" damage.");
+            output.add(" attacks you back with ");
+            output.add(attack);
+            output.add(" damage.");
         }
         else {
 
             currentRoom.setMonster(null);
-            stringBuilder.append(" is dead.");
+            output.add(" is dead.");
             player.setAttackPower(player.getAttackPower()+2);
         }
     }
@@ -54,9 +55,9 @@ public class AttackWith extends Command {
         int itemPower = item.use();
         int attack = itemPower+ player.getAttackPower();
         monster.setHP(monster.getHP()-attack);
-        stringBuilder.append("You have attacked the monster "+monster.getName());
-        stringBuilder.append(" with " );
-        stringBuilder.append(attack);
-        stringBuilder.append(" damage.");
+        output.add("You have attacked the monster "+monster.getName());
+        output.add(" with " );
+        output.add(attack);
+        output.add(" damage.");
     }
 }

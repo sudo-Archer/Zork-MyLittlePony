@@ -9,7 +9,10 @@ public class Output {
 
     public void add(String string){
         stringBuilder.append(string);
-        stringBuilder.append("\n");
+    }
+
+    public void add(int number){
+        stringBuilder.append(number);
     }
 
     public void display(){

@@ -21,6 +21,7 @@ public class CommandParser {
         calledCommand = new Drop();
         calledCommand.setGameMap(gameMap);
         calledCommand.setPlayer(player);
+        calledCommand.setOutput(output);
     }
 
     public void takeInput(String command) {
@@ -28,7 +29,6 @@ public class CommandParser {
         Command calledCommand = CommandFactory.createCommand(command);
         if(calledCommand != null) {
             calledCommand.action();
-            output.add(calledCommand.output());
         }
         else{
             output.add("Unknown command");

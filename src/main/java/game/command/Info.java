@@ -7,9 +7,8 @@ public class Info extends Command {
 
     @Override
     public void action() {
-        stringBuilder = new StringBuilder();
-        stringBuilder.append(player.info()+"\n");
-        stringBuilder.append(player.getCurrentRoom().info());
+        output.add(player.info()+"\n");
+        output.add(player.getCurrentRoom().info());
 
     }
 }
