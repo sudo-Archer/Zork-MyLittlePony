@@ -7,7 +7,7 @@ public class Take extends Command {
 
 
     @Override
-    public void action() {
+    public void inGame() {
         Room curRoom = player.getCurrentRoom();
         Item roomItem = curRoom.getItem();
         if(roomItem != null){

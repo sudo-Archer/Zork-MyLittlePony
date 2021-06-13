@@ -2,14 +2,13 @@ package game.command;
 
 import game.CommandParser;
 
-import java.io.Console;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Autopilot extends Command{
     @Override
-    public void action() {
+    public void inGame() {
         File file = new File(argument);
         try {
             Scanner scanner = new Scanner(file);
@@ -29,7 +28,6 @@ public class Autopilot extends Command{
             output.add(argument);
 
         }
-
-
     }
+
 }

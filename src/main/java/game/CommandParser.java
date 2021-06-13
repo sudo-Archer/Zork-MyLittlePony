@@ -28,7 +28,7 @@ public class CommandParser {
         command = command.trim().toLowerCase();
         Command calledCommand = CommandFactory.createCommand(command);
         if(calledCommand != null) {
-            calledCommand.action();
+            calledCommand.execute();
         }
         else{
             output.add("Unknown command");

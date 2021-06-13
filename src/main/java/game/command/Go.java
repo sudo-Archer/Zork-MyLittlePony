@@ -5,7 +5,7 @@ import game.map.Room;
 public class Go extends Command{
 
     @Override
-    public void action() {
+    public void inGame() {
         Room currentRoom = player.getCurrentRoom();
         Room nextRoom = currentRoom.getRoom(argument);
         if(nextRoom == null){

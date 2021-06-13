@@ -1,5 +1,4 @@
 package game.command;
-import game.Game;
 import game.Output;
 import game.map.GameMap;
 import game.player.Player;
@@ -34,6 +33,21 @@ public abstract class Command {
         return player;
     }
 
-    public abstract void action();
+    protected void inGame(){
+        output.add("You must quit this game to use this command. \n");
+    }
+    protected void outGame(){
+        output.add("You must play a map to use this command. \n");
+    }
+
+    protected boolean playingGame(){ return gameMap != null&& player != null;}
+
+    public void execute(){
+        if(playingGame()){
+            inGame();
+        }else{
+            outGame();
+        }
+    }
 
 }

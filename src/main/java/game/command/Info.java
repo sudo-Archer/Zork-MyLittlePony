@@ -6,7 +6,7 @@ public class Info extends Command {
 
 
     @Override
-    public void action() {
+    public void inGame() {
         output.add(player.info()+"\n");
         output.add(player.getCurrentRoom().info());
 

@@ -6,35 +6,26 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class GameMap {
+public abstract class GameMap {
 
-    // Initialize rooms
-    private Room startingRoom = new Room("Starting Room", "nothing");
-    private Room up = new Room("UP", "its the north of the starting room");
+    protected boolean running = true;
+
     public GameMap() {
+        initialize();
         directionsSetup();
         itemSetup();
         monsterSetup();
     }
 
-    private void directionsSetup(){
-        up.setRoom("south", startingRoom);
-        startingRoom.setRoom("north", up);
-    }
-    private void itemSetup(){
-        Item rock = new Item("Rock", "It dose nothing");
-        startingRoom.setItem(rock);
-    }
-    private void monsterSetup(){
-        Monster Pat = new Monster("Pat", "He is stupid", 3, 1);
-        Monster Bell = new Monster("Bell", "This monster is lazy", 6, 2);
-        up.setMonster(Bell);
-        startingRoom.setMonster(Pat);
-    }
+    protected abstract void initialize();
 
-    public Room getStartingRoom() {
-        return startingRoom;
-    }
+    protected abstract void directionsSetup();
+
+    protected abstract void itemSetup();
+
+    protected abstract void monsterSetup();
+
+    public abstract Room getStartingRoom();
 
     public String getMap(){
         StringBuilder stringBuilder = new StringBuilder();
@@ -51,4 +42,10 @@ public class GameMap {
 
         return stringBuilder.toString();
     }
+
+    public boolean isRunning(){
+        return this.running;
+    }
+
+    public void stopGame(){ running = false;}
 }

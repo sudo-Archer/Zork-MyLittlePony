@@ -2,7 +2,7 @@ package game.command;
 
 public class CommandMap extends Command{
     @Override
-    public void action() {
+    public void inGame() {
         output.add(gameMap.getMap());
     }
 }

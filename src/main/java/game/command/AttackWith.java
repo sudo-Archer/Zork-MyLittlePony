@@ -12,7 +12,7 @@ public class AttackWith extends Command {
     Room currentRoom;
 
     @Override
-    public void action() {
+    public void inGame() {
         currentRoom = player.getCurrentRoom();
         monster = currentRoom.getMonster();
         item =  player.getItem(argument);

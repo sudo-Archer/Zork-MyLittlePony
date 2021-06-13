@@ -1,8 +1,4 @@
 package game.command;
-
-import game.command.Info;
-import game.command.Take;
-
 public enum CommandEnum {
 
     INFO(Info.class, "info", "info- This command givens basic information about the player and the current room they are in."),
@@ -13,13 +9,15 @@ public enum CommandEnum {
     MAP(CommandMap.class, "map", "map- Display a 2D map using ascii art."),
     AUTOPILOT(Autopilot.class, "autopilot", "autopilot [file]- Run this game in autopilot mode using the list of command in the file"),
     HELP(Help.class, "help", "help- Print all commands and its uses."),
+    PLAY(Play.class, "play", "play [map]- Start playing the map."),
+
     ;
 
 
 
-    private Class commandClass;
-    private String commandString;
-    private String commandManual;
+    private final Class commandClass;
+    private final String commandString;
+    private final String commandManual;
 
     CommandEnum(Class commandClass, String commandString, String commandManual) {
         this.commandClass = commandClass;

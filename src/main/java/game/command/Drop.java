@@ -3,7 +3,7 @@ package game.command;
 public class Drop extends Command {
 
     @Override
-    public void action() {
+    public void inGame() {
         boolean dropped = player.removeItem(argument);
         if(dropped){
             output.add("You have dropped ");
