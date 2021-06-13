@@ -14,7 +14,7 @@ public class Game {
     Output output = new Output();
     boolean run = true;
     String command;
-    CommandParser commandParser = new CommandParser(output, player);
+    CommandParser commandParser = new CommandParser(output, player, gameMap);
     Scanner scanner = new Scanner(System.in);
 
 

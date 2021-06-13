@@ -10,6 +10,7 @@ public enum CommandEnum {
     DROP(Drop.class, "drop"),
     ATTACK_WITH(AttackWith.class, "attack with"),
     GO(Go.class, "go"),
+    MAP(CommandMap.class, "map");
 
     ;
 
