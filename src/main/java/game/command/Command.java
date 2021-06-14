@@ -1,5 +1,5 @@
 package game.command;
-import game.Output;
+import game.GameObserver;
 import game.map.GameMap;
 import game.player.Player;
 
@@ -7,7 +7,7 @@ public abstract class Command {
     protected String argument;
     protected static Player player;
     protected static GameMap gameMap;
-    protected static Output output;
+    protected static GameObserver gameObserver;
 
     public void setArgument(String argument) {
         this.argument = argument.trim();
@@ -19,8 +19,8 @@ public abstract class Command {
 
     public void setGameMap(GameMap gameMap){ this.gameMap = gameMap;}
 
-    public void setOutput(Output output){
-        this.output = output;
+    public void setOutput(GameObserver gameObserver){
+        this.gameObserver = gameObserver;
     }
 
     public GameMap getGameMap(){ return this.gameMap;}
@@ -34,10 +34,10 @@ public abstract class Command {
     }
 
     protected void inGame(){
-        output.add("You must quit this game to use this command. \n");
+        gameObserver.addOutput("You must quit this game to use this command. \n");
     }
     protected void outGame(){
-        output.add("You must play a map to use this command. \n");
+        gameObserver.addOutput("You must play a map to use this command. \n");
     }
 
     protected boolean playingGame(){ return gameMap != null&& player != null;}

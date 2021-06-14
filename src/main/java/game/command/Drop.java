@@ -6,11 +6,11 @@ public class Drop extends Command {
     public void inGame() {
         boolean dropped = player.removeItem(argument);
         if(dropped){
-            output.add("You have dropped ");
+            gameObserver.addOutput("You have dropped ");
         }
         else{
-            output.add("You don't have ");
+            gameObserver.addOutput("You don't have ");
         }
-        output.add(argument+"\n");
+        gameObserver.addOutput(argument+"\n");
     }
 }

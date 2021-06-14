@@ -9,11 +9,11 @@ public class Go extends Command{
         Room currentRoom = player.getCurrentRoom();
         Room nextRoom = currentRoom.getRoom(argument);
         if(nextRoom == null){
-            output.add("You can't go what way");
+            gameObserver.addOutput("You can't go what way");
         }
         else{
             player.setCurrentRoom(nextRoom);
-            output.add(nextRoom.info());
+            gameObserver.addOutput(nextRoom.info());
         }
 
     }

@@ -12,20 +12,20 @@ public class Autopilot extends Command{
         File file = new File(argument);
         try {
             Scanner scanner = new Scanner(file);
-            output.add("Found given file.\n");
+            gameObserver.addOutput("Found given file.\n");
             String command;
-            CommandParser commandParser = new CommandParser(output, player, gameMap);
+            CommandParser commandParser = new CommandParser(gameObserver, player, gameMap);
             while(scanner.hasNextLine()){
-                output.add("\n");
-                output.add("Entered command: ");
+                gameObserver.addOutput("\n");
+                gameObserver.addOutput("Entered command: ");
                 command = scanner.nextLine();
-                output.add(command+"\n");
+                gameObserver.addOutput(command+"\n");
                 commandParser.takeInput(command);
             }
 
         } catch (FileNotFoundException e) {
-            output.add("File not found ");
-            output.add(argument);
+            gameObserver.addOutput("File not found ");
+            gameObserver.addOutput(argument);
 
         }
     }

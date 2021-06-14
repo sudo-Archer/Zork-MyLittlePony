@@ -5,7 +5,7 @@ public class Help extends Command{
     public void execute(){
         CommandEnum[] commandEnums = CommandEnum.values();
         for(CommandEnum command: commandEnums){
-            output.add(command.getCommandManual()+"\n");
+            gameObserver.addOutput(command.getCommandManual()+"\n");
         }
     }
 }

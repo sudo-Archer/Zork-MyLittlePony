@@ -1,33 +1,29 @@
 package game;
 
-import game.CommandParser;
-import game.Output;
 import game.map.GameMap;
-import game.map.TestingMap;
 import game.player.Player;
 
 import java.util.Scanner;
 
 public class Game {
 
-    private Boolean run = true;
-    GameMap gameMap = new TestingMap();
-    Player player;
-    Output output = new Output();
-    String command;
-    CommandParser commandParser = new CommandParser(output, player, gameMap);
-    Scanner scanner = new Scanner(System.in);
+    private static GameMap gameMap;
+    private static Player player;
+    private static GameObserver gameObserver = new GameObserver();
+    private String command;
+    private CommandParser commandParser = new CommandParser(gameObserver, player, gameMap);
+    private Scanner scanner = new Scanner(System.in);
 
 
     public void run(){
-        output.add("Welcome to Zork Adventure!");
-        while(output.isRunning()){
-            output.display();
+        gameObserver.addOutput("Welcome to Zork Adventure!");
+        while(gameObserver.isRunning()){
+            gameObserver.display();
             System.out.print("Enter a command: ");
             command = scanner.nextLine();
             commandParser.takeInput(command);
         }
-        output.display();
+        gameObserver.display();
     }
 
 }

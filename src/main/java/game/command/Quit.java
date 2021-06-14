@@ -6,7 +6,7 @@ public class Quit extends Command {
     protected void inGame(){
         player = null;
         gameMap = null;
-        output.add("You have quit the current game.\n");
+        gameObserver.addOutput("You have quit the current game.\n");
     }
 
 }

@@ -11,18 +11,18 @@ public class Take extends Command {
         Room curRoom = player.getCurrentRoom();
         Item roomItem = curRoom.getItem();
         if(roomItem != null){
-           output.add("you have picked up ");
-           output.add(roomItem.getItemName());
-           output.add(". Item info: ");
-           output.add(roomItem.getItemDescription());
-           output.add("\n");
+           gameObserver.addOutput("you have picked up ");
+           gameObserver.addOutput(roomItem.getItemName());
+           gameObserver.addOutput(". Item info: ");
+           gameObserver.addOutput(roomItem.getItemDescription());
+           gameObserver.addOutput("\n");
 
            player.addItem(roomItem);
            curRoom.setItem(null);
 
         }
         else {
-            output.add("No item to take \n");
+            gameObserver.addOutput("No item to take \n");
 
         }
 
