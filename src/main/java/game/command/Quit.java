@@ -7,6 +7,8 @@ public class Quit extends Command {
         player = null;
         gameMap = null;
         gameObserver.addOutput("You have quit the current game.\n");
+        gameObserver.setRecordHistory(false);
+        gameObserver.clearCommandHistory();
     }
 
 }

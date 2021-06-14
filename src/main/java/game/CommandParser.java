@@ -28,6 +28,7 @@ public class CommandParser {
         Command calledCommand = CommandFactory.createCommand(command);
         if(calledCommand != null) {
             calledCommand.execute();
+            gameObserver.addHistory(command);
         }
         else{
             gameObserver.addOutput("Unknown command");

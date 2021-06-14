@@ -11,7 +11,9 @@ public enum CommandEnum {
     HELP(Help.class, "help", "help- Print all commands and its uses."),
     PLAY(Play.class, "play", "play [map]- Start playing the map."),
     QUIT(Quit.class, "quit", "quit- quit the current game"),
-    EXIT(Exit.class, "exit", "exit- exit form Zork adventure.")
+    EXIT(Exit.class, "exit", "exit- exit form Zork adventure."),
+    SAVE(Save.class, "save", "save [save-name]- save the game-state]"),
+    LOAD(Load.class, "load", "load [save-name]- load game state from saved point"),
 
 
     ;
