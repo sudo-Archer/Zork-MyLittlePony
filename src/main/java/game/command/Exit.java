@@ -1,9 +1,12 @@
 package game.command;
 
+import game.controls.GameConsole;
+import game.controls.GameRunner;
+
 public class Exit extends Command{
     @Override
     protected void outGame(){
-        gameObserver.stopRunning();
-        gameObserver.addOutput("See you back soon!");
+        GameRunner.stopRunning();
+        GameConsole.addOutput("See you back soon!");
     }
 }

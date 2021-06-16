@@ -1,12 +1,14 @@
 package game.command;
 
+import game.controls.GameConsole;
+
 public class Info extends Command {
 
 
     @Override
     public void inGame() {
-        gameObserver.addOutput(player.info()+"\n");
-        gameObserver.addOutput(player.getCurrentRoom().info());
+        GameConsole.addOutput(player.info()+"\n");
+        GameConsole.addOutput(player.getCurrentRoom().info());
 
     }
 }

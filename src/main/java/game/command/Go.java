@@ -1,5 +1,6 @@
 package game.command;
 
+import game.controls.GameConsole;
 import game.map.Room;
 
 public class Go extends Command{
@@ -9,11 +10,11 @@ public class Go extends Command{
         Room currentRoom = player.getCurrentRoom();
         Room nextRoom = currentRoom.getRoom(argument);
         if(nextRoom == null){
-            gameObserver.addOutput("You can't go what way");
+            GameConsole.addOutput("You can't go what way");
         }
         else{
             player.setCurrentRoom(nextRoom);
-            gameObserver.addOutput(nextRoom.info());
+            GameConsole.addOutput(nextRoom.info());
         }
 
     }

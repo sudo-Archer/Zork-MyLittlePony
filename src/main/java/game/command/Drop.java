@@ -1,16 +1,18 @@
 package game.command;
 
+import game.controls.GameConsole;
+
 public class Drop extends Command {
 
     @Override
     public void inGame() {
         boolean dropped = player.removeItem(argument);
         if(dropped){
-            gameObserver.addOutput("You have dropped ");
+            GameConsole.addOutput("You have dropped ");
         }
         else{
-            gameObserver.addOutput("You don't have ");
+            GameConsole.addOutput("You don't have ");
         }
-        gameObserver.addOutput(argument+"\n");
+        GameConsole.addOutput(argument+"\n");
     }
 }

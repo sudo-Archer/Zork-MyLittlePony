@@ -1,26 +1,25 @@
-package game;
+package game.controls;
 
 import game.command.Command;
 import game.command.CommandFactory;
 import game.command.Drop;
+import game.controls.GameConsole;
+import game.controls.GameHistory;
 import game.map.GameMap;
 import game.player.Player;
 
 public class CommandParser {
 
-    private GameObserver gameObserver;
     private Player player;
     private GameMap gameMap;
     private Command calledCommand;
 
-    public CommandParser(GameObserver gameObserver, Player player, GameMap gameMap) {
-        this.gameObserver = gameObserver;
+    public CommandParser(Player player, GameMap gameMap) {
         this.player = player;
         this.gameMap = gameMap;
         calledCommand = new Drop();
         calledCommand.setGameMap(gameMap);
         calledCommand.setPlayer(player);
-        calledCommand.setOutput(gameObserver);
     }
 
     public void takeInput(String command) {
@@ -28,10 +27,10 @@ public class CommandParser {
         Command calledCommand = CommandFactory.createCommand(command);
         if(calledCommand != null) {
             calledCommand.execute();
-            gameObserver.addHistory(command);
+            GameHistory.addHistory(command);
         }
         else{
-            gameObserver.addOutput("Unknown command");
+            GameConsole.addOutput("Unknown command");
         }
     }
 

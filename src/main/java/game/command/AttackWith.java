@@ -1,5 +1,6 @@
 package game.command;
 
+import game.controls.GameConsole;
 import game.item.Item;
 import game.map.Room;
 import game.monster.Monster;
@@ -16,35 +17,35 @@ public class AttackWith extends Command {
         monster = currentRoom.getMonster();
         item =  player.getItem(argument);
         if(monster == null){
-            gameObserver.addOutput("There is nothing to attack");
+            GameConsole.addOutput("There is nothing to attack");
         }
         else if(argument.equals("")){
-            gameObserver.addOutput("Attack with what?");
+            GameConsole.addOutput("Attack with what?");
         }
         else if(item == null){
-            gameObserver.addOutput("You don't have that Item");
+            GameConsole.addOutput("You don't have that Item");
         }
         else{
             PlayerAttackMonster();
             MonsterAttackPlayer();
         }
-        gameObserver.addOutput("\n");
+        GameConsole.addOutput("\n");
     }
 
     private void MonsterAttackPlayer() {
-        gameObserver.addOutput("The monster ");
-        gameObserver.addOutput(monster.getName());
+        GameConsole.addOutput("The monster ");
+        GameConsole.addOutput(monster.getName());
         if(monster.isAlive()){
             int attack = monster.getAttackPower();
             player.setHp(player.getHp()- attack);
-            gameObserver.addOutput(" attacks you back with ");
-            gameObserver.addOutput(attack);
-            gameObserver.addOutput(" damage.");
+            GameConsole.addOutput(" attacks you back with ");
+            GameConsole.addOutput(attack);
+            GameConsole.addOutput(" damage.");
         }
         else {
 
             currentRoom.setMonster(null);
-            gameObserver.addOutput(" is dead.");
+            GameConsole.addOutput(" is dead.");
             player.setAttackPower(player.getAttackPower()+2);
         }
     }
@@ -54,9 +55,9 @@ public class AttackWith extends Command {
         int itemPower = item.use();
         int attack = itemPower+ player.getAttackPower();
         monster.setHP(monster.getHP()-attack);
-        gameObserver.addOutput("You have attacked the monster "+monster.getName());
-        gameObserver.addOutput(" with " );
-        gameObserver.addOutput(attack);
-        gameObserver.addOutput(" damage.");
+        GameConsole.addOutput("You have attacked the monster "+monster.getName());
+        GameConsole.addOutput(" with " );
+        GameConsole.addOutput(attack);
+        GameConsole.addOutput(" damage.");
     }
 }

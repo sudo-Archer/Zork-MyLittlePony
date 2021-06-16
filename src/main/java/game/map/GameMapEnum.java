@@ -1,6 +1,7 @@
 package game.map;
 public enum GameMapEnum {
     TESTING(TestingMap.class, "test", "this is just a drill."),
+
     ;
 
     private String mapName;
