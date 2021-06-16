@@ -15,6 +15,7 @@ public class Go extends Command{
         else{
             player.setCurrentRoom(nextRoom);
             GameConsole.addOutput(nextRoom.info());
+            player.setHp(player.getHp()+2);
         }
 
     }

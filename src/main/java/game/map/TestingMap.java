@@ -1,4 +1,5 @@
 package game.map;
+import game.controls.MapObserver;
 import game.item.Item;
 import game.monster.Monster;
 
@@ -11,6 +12,12 @@ public class TestingMap extends GameMap {
     // Initialize rooms
     protected Room startingRoom;
     protected Room up;
+
+    @Override
+    protected void howToWin() {
+        MapObserver.clear();
+        MapObserver.setWinningAmountOfMonsters(1);
+    }
 
     @Override
     protected void initialize() {
@@ -33,9 +40,15 @@ public class TestingMap extends GameMap {
     @Override
     protected void monsterSetup(){
         Monster Pat = new Monster("Pat", "He is stupid", 3, 1);
-        Monster Bell = new Monster("Bell", "This monster is lazy", 6, 2);
+        Monster Bell = new Monster("Bell", "This monster is lazy", 20, 3);
+        Bell.setMaxAttackPower(10);
         up.setMonster(Bell);
         startingRoom.setMonster(Pat);
+    }
+
+    @Override
+    public String mapName() {
+        return "test";
     }
 
 
@@ -44,22 +57,7 @@ public class TestingMap extends GameMap {
         return startingRoom;
     }
 
-    @Override
-    public String getMap(){
-        StringBuilder stringBuilder = new StringBuilder();
-        File file = new File("./src/main/maps/GameMap.txt");
-        try {
-            Scanner scanner = new Scanner(file);
-            while(scanner.hasNextLine()){
-                stringBuilder.append(scanner.nextLine());
-                stringBuilder.append("\n");
-            }
-        } catch (FileNotFoundException e) {
-            stringBuilder.append("This game doesn't have a map");
-        }
 
-        return stringBuilder.toString();
-    }
 
 
 }

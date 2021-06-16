@@ -1,5 +1,6 @@
 package game.command;
 import game.controls.GameConsole;
+import game.controls.MapRunner;
 import game.map.GameMap;
 import game.player.Player;
 
@@ -16,7 +17,7 @@ public abstract class Command {
         this.player = player;
     }
 
-    public void setGameMap(GameMap gameMap){ this.gameMap = gameMap;}
+    public void setGameMap(){ this.gameMap = MapRunner.getGameMap();}
 
     public GameMap getGameMap(){ return this.gameMap;}
 
@@ -31,7 +32,7 @@ public abstract class Command {
         GameConsole.addOutput("You must play a map to use this command. \n");
     }
 
-    protected boolean playingGame(){ return gameMap != null&& player != null;}
+    protected boolean playingGame(){ return MapRunner.isRunning();}
 
     public void execute(){
         if(playingGame()){

@@ -11,14 +11,11 @@ import game.player.Player;
 public class CommandParser {
 
     private Player player;
-    private GameMap gameMap;
     private Command calledCommand;
 
-    public CommandParser(Player player, GameMap gameMap) {
+    public CommandParser(Player player) {
         this.player = player;
-        this.gameMap = gameMap;
         calledCommand = new Drop();
-        calledCommand.setGameMap(gameMap);
         calledCommand.setPlayer(player);
     }
 

@@ -1,23 +1,20 @@
 package game.player;
 
+import game.controls.MapRunner;
 import game.map.GameMap;
 import game.map.Room;
 import game.item.Item;
-
-import java.awt.*;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class Player {
 
     private Room currentRoom;
+    private GameMap gameMap;
     private HashMap<String, Item> gameItems = new HashMap<>();
     private int hp;
     private int maxHp;
     private int attackPower;
-    private boolean isAlive;
 
     public Player(GameMap gameMap, int maxHp, int attackPower) {
         this.currentRoom = gameMap.getStartingRoom();
@@ -46,8 +43,8 @@ public class Player {
         return attackPower;
     }
 
-    public boolean isAlive() {
-        return isAlive;
+    public void isDead(){
+        MapRunner.playerLost();
     }
 
     public void setHp(int hp) {
@@ -55,8 +52,8 @@ public class Player {
         if(hp > this.maxHp){
            this.hp = maxHp;
         }
-        if(hp < 1){
-            isAlive = false;
+        if(hp < 0){
+            isDead();
         }
     }
 
@@ -65,6 +62,7 @@ public class Player {
     }
 
     public void addItem(Item item){
+        item.setPlayer(this);
         this.gameItems.put(item.getItemName().toLowerCase(), item);
     }
 

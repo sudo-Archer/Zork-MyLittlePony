@@ -1,11 +1,18 @@
 package game.monster;
 
+import game.controls.GameConsole;
+import game.controls.MapObserver;
+
+import java.util.Random;
+
 public class Monster {
     protected String name;
     protected String description;
     protected int HP;
     protected int attackPower;
     protected boolean isAlive;
+    protected int maxAttackPower;
+    protected Random random;
 
 
     public Monster(String name, String description, int HP, int attackPower) {
@@ -13,14 +20,25 @@ public class Monster {
         this.description = description;
         this.HP = HP;
         this.attackPower = attackPower;
+        this.isAlive = true;
+        this.maxAttackPower = attackPower;
+        this.random = new Random();
     }
+
+    public void setMaxAttackPower(int num){ this.maxAttackPower = num;}
 
     public String getName() {
         return name;
     }
 
-    public boolean isAlive() {
+    public boolean isAlive(){
         return isAlive;
+    }
+
+    public void isDead() {
+       // what to do now?
+        MapObserver.incrementMonstersKilled();
+        GameConsole.addOutput(name+" is dead.");
     }
 
     public String getDescription() {
@@ -32,7 +50,11 @@ public class Monster {
     }
 
     public int getAttackPower() {
-        return attackPower;
+        return attackPower + randomAttack();
+    }
+
+    private int randomAttack(){
+        return random.nextInt(maxAttackPower - attackPower+1);
     }
 
     public void setName(String name) {
@@ -45,7 +67,9 @@ public class Monster {
 
     public void setHP(int HP) {
         this.HP = HP;
-        isAlive = HP>0;
+        if (HP < 0){
+            isDead();
+        }
     }
 
     public void setAttackPower(int attackPower) {

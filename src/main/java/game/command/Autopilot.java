@@ -17,7 +17,7 @@ public class Autopilot extends Command{
             Scanner scanner = new Scanner(file);
             GameConsole.addOutput("Found given file.\n");
             String command;
-            CommandParser commandParser = new CommandParser(player, gameMap);
+            CommandParser commandParser = new CommandParser(player);
             while(scanner.hasNextLine()){
                 addOutput("\n");
                 GameConsole.addOutput("Entered command: ");

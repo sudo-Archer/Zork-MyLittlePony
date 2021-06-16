@@ -20,7 +20,7 @@ public class Load extends Command{
                 Scanner scanner = new Scanner(file);
                 GameConsole.addOutput("Loading saved file...\n");
                 String command;
-                CommandParser commandParser = new CommandParser(player, gameMap);
+                CommandParser commandParser = new CommandParser(player);
                 while (scanner.hasNextLine()) {
                     GameConsole.addOutput("\n");
                     GameConsole.addOutput("Entered command: ");

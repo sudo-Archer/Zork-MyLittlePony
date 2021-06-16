@@ -37,10 +37,10 @@ public class AttackWith extends Command {
         GameConsole.addOutput(monster.getName());
         if(monster.isAlive()){
             int attack = monster.getAttackPower();
-            player.setHp(player.getHp()- attack);
             GameConsole.addOutput(" attacks you back with ");
             GameConsole.addOutput(attack);
-            GameConsole.addOutput(" damage.");
+            GameConsole.addOutput(" damage. ");
+            player.setHp(player.getHp()- attack);
         }
         else {
 

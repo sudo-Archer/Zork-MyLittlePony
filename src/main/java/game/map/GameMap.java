@@ -15,7 +15,11 @@ public abstract class GameMap {
         directionsSetup();
         itemSetup();
         monsterSetup();
+        howToWin();
     }
+
+
+    protected abstract void howToWin();
 
     protected abstract void initialize();
 
@@ -25,11 +29,13 @@ public abstract class GameMap {
 
     protected abstract void monsterSetup();
 
+    public abstract String mapName();
+
     public abstract Room getStartingRoom();
 
     public String getMap(){
         StringBuilder stringBuilder = new StringBuilder();
-        File file = new File("./src/main/maps/GameMap.txt");
+        File file = new File("./src/main/maps/"+mapName()+".txt");
         try {
             Scanner scanner = new Scanner(file);
             while(scanner.hasNextLine()){

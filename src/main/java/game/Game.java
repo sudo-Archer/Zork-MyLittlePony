@@ -1,9 +1,6 @@
 package game;
 
-import game.controls.CommandParser;
-import game.controls.GameConsole;
-import game.controls.GameHistory;
-import game.controls.GameRunner;
+import game.controls.*;
 import game.map.GameMap;
 import game.player.Player;
 
@@ -14,13 +11,14 @@ public class Game {
     private static GameMap gameMap;
     private static Player player;
     private String command;
-    private CommandParser commandParser = new CommandParser(player, gameMap);
+    private CommandParser commandParser = new CommandParser(player);
     private Scanner scanner = new Scanner(System.in);
 
     private void initialize(){
         GameRunner.initialize();
         GameConsole.initialize();
         GameHistory.initialize();
+        MapRunner.initialize();
 
 
     }
