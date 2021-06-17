@@ -1,0 +1,4 @@
+play pony
+take
+attack with stick
+info

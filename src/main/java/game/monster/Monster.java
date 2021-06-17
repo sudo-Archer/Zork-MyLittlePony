@@ -14,7 +14,15 @@ public class Monster {
     protected int maxAttackPower;
     protected Random random;
 
-
+    public Monster(String name, String description, int HP, int attackPower, int maxAttackPower){
+        this.name = name;
+        this.description = description;
+        this.HP = HP;
+        this.attackPower = attackPower;
+        this.isAlive = true;
+        this.maxAttackPower = maxAttackPower;
+        this.random = new Random();
+    }
     public Monster(String name, String description, int HP, int attackPower) {
         this.name = name;
         this.description = description;
@@ -24,8 +32,6 @@ public class Monster {
         this.maxAttackPower = attackPower;
         this.random = new Random();
     }
-
-    public void setMaxAttackPower(int num){ this.maxAttackPower = num;}
 
     public String getName() {
         return name;

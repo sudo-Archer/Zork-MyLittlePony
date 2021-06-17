@@ -49,20 +49,23 @@ public class MapObserver {
 
     public static void incrementMonstersKilled(){
         numberOfMonstersKilled++;
-        ifWin(winningAmountOfMonsters, numberOfMonstersKilled);
+        ifWin();
     }
     public static void incrementTokenTaken(){
         numOfTokenTaken++;
-        ifWin(winningAmountOfTokens, numOfTokenTaken);
+        ifWin();
     }
     public static void incrementItemTaken(){
        numOfItemTaken++;
-       ifWin(winningAmountOfItems, numOfItemTaken);
+       ifWin();
     }
-    public static void ifWin(Integer winning, int amount){
-        if(winning != null && amount >= winning){
+    public static void ifWin(){
+        if(isDone(winningAmountOfItems, numOfItemTaken)&&isDone(winningAmountOfMonsters, numberOfMonstersKilled)&&isDone(winningAmountOfTokens, numOfTokenTaken)){
             MapRunner.playerWin();
         }
+    }
+    private static boolean isDone(Integer win, int amount){
+        return (win==null||win<=amount);
     }
 
 

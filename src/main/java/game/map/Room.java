@@ -65,10 +65,10 @@ public class Room {
         stringBuilder.append("You are in "+roomName+". ");
         stringBuilder.append("You see " + roomDescription+"\n");
         if(item!= null){
-            stringBuilder.append("There is an Item "+item.getItemName()+" in this room. ");
+            stringBuilder.append("There is an Item "+item.getItemName()+" in this place. ");
         }
         if(monster != null){
-            stringBuilder.append("There is a Monster in this room. \n");
+            stringBuilder.append("There is a Monsters. \n");
             stringBuilder.append(monster.info()+"\n");
         }
         return stringBuilder.toString();

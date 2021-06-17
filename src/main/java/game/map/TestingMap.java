@@ -39,9 +39,10 @@ public class TestingMap extends GameMap {
 
     @Override
     protected void monsterSetup(){
-        Monster Pat = new Monster("Pat", "He is stupid", 3, 1);
-        Monster Bell = new Monster("Bell", "This monster is lazy", 20, 3);
-        Bell.setMaxAttackPower(10);
+        Monster Pat = new Monster("Pat", "He is stupid", 3, 1, 1);
+        Monster Bell = new Monster("Bell", "This monster will kill you", 20, 0);
+
+
         up.setMonster(Bell);
         startingRoom.setMonster(Pat);
     }

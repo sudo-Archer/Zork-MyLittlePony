@@ -1,12 +1,10 @@
 package game.item;
 
 public class ConstantAttack extends Item {
-    private int attack = 0;
+    private int attack;
 
-    public ConstantAttack(String itemName, String itemDescription) {
+    public ConstantAttack(String itemName, String itemDescription, int attack) {
         super(itemName, itemDescription);
-    }
-    public void setAttack(int attack){
         this.attack = attack;
     }
     public int use(){
